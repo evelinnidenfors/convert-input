@@ -41,6 +41,11 @@ textarea {
   height: 500px;
 }
 
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
 button {
   background: #4b4237;
   color: #ede7d9;
@@ -50,6 +55,15 @@ button {
   border-radius: 30px;
   border: none;
   text-transform: uppercase;
+  margin: 10px 0;
+}
+
+.button.clear {
+  background-color: #736b60;
+}
+
+.button.clear:hover {
+  background-color: #a49694;
 }
 
 button:hover {
