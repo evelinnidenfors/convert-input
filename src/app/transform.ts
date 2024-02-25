@@ -1,4 +1,4 @@
-export default function Tranformation(inputText:string) {
+export default function tranformation(inputText:string) {
     let inputArray = inputText.split("\n");
 
     return inputArray.map((el) => {

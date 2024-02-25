@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import Tranformation from "./transform";
+import tranformation from "./transform";
 
 export default function Home() {
   let [inputValue, setInputValue] = useState<string>("");
@@ -16,7 +16,7 @@ export default function Home() {
           onChange={(event) => setInputValue(event.target.value)}
         ></textarea>
       </form>
-      <button onClick={() => setOutputValue(Tranformation(inputValue))}>
+      <button onClick={() => setOutputValue(tranformation(inputValue))}>
         Transform
       </button>
       <form action="">
