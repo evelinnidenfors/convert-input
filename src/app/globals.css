@@ -13,8 +13,14 @@ body {
 
 main {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
   height: 100vh;
+}
+
+main > div {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
@@ -40,6 +46,23 @@ textarea {
   width: 350px;
   height: 500px;
 }
+
+.output-form > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.output-form > div label {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+
+/* .output-text {
+  height: 454.66px;
+} */
 
 .buttons {
   display: flex;
@@ -69,4 +92,21 @@ button {
 button:hover {
   background: #736b60;
   transition: all 0.5s;
+}
+
+button.copy {
+  display: flex;
+  align-items: center;
+  color: #4b4237;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+button.copy img {
+  margin-left: 6px;
+}
+
+button.copy:hover {
+  color: #a49694;
 }
