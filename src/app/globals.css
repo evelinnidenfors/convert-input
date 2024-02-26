@@ -52,6 +52,7 @@ textarea {
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  position: relative;
 }
 
 .output-form > div label {
@@ -59,10 +60,6 @@ textarea {
   justify-content: center;
   display: flex;
 }
-
-/* .output-text {
-  height: 454.66px;
-} */
 
 .buttons {
   display: flex;
@@ -109,4 +106,65 @@ button.copy img {
 
 button.copy:hover {
   color: #a49694;
+}
+
+.copied-text.hidden {
+  display: none;
+}
+
+.copied-text {
+  text-transform: lowercase;
+  color: #a49694;
+  position: absolute;
+  right: 30px;
+  animation: fadeIn ease 500ms;
+  -webkit-animation: fadeIn ease 500ms;
+  -moz-animation: fadeIn ease 500ms;
+  -o-animation: fadeIn ease 500ms;
+  -ms-animation: fadeIn ease 500ms;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

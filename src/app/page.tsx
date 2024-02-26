@@ -4,16 +4,22 @@ import tranformation from "./transform";
 
 export default function Home() {
   let [inputValue, setInputValue] = useState<string>("");
-  let [outputValue, setOutputValue] = useState<string>();
+  let [outputValue, setOutputValue] = useState<string>("");
+  let [isVisible, setIsVisible] = useState<boolean>();
 
   const handleClear = () => {
     setOutputValue("");
     setInputValue("");
+    setIsVisible(false);
   };
 
   function copyText(copy: any) {
     navigator.clipboard.writeText(copy);
     event?.preventDefault();
+    setIsVisible(true);
+    setTimeout(() => {
+      setIsVisible(false);
+    }, 1500);
   }
 
   return (
@@ -45,21 +51,20 @@ export default function Home() {
               className="button copy"
               onClick={() => copyText(outputValue)}
             >
+              <span className={`copied-text ${isVisible ? "" : "hidden"}`}>
+                Copied
+              </span>
               <img src="/copy.png" alt="" />
             </button>
           </div>
           <textarea
+            readOnly
             className="output-text"
             name="message"
             value={outputValue}
           ></textarea>
         </form>
       </div>
-      {/* <div>
-        <button className="button copy" onClick={() => copyText(outputValue)}>
-          Copy <img src="/copy.png" alt="" />
-        </button>
-      </div> */}
     </main>
   );
 }
