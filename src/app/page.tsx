@@ -6,11 +6,13 @@ export default function Home() {
   let [inputValue, setInputValue] = useState<string>("");
   let [outputValue, setOutputValue] = useState<string>("");
   let [isVisible, setIsVisible] = useState<boolean>();
+  let [copyiconVisible, setCopyiconVisible] = useState<boolean>();
 
   const handleClear = () => {
     setOutputValue("");
     setInputValue("");
     setIsVisible(false);
+    setCopyiconVisible(false);
   };
 
   function copyText(copy: any) {
@@ -20,6 +22,11 @@ export default function Home() {
     setTimeout(() => {
       setIsVisible(false);
     }, 1500);
+  }
+
+  function transformClick() {
+    setOutputValue(tranformation(inputValue));
+    setCopyiconVisible(true);
   }
 
   return (
@@ -34,10 +41,7 @@ export default function Home() {
           ></textarea>
         </form>
         <div className="buttons">
-          <button
-            className="button transform"
-            onClick={() => setOutputValue(tranformation(inputValue))}
-          >
+          <button className="button transform" onClick={() => transformClick()}>
             Transform
           </button>
           <button className="button clear" onClick={handleClear}>
@@ -48,7 +52,7 @@ export default function Home() {
           <div>
             <label htmlFor="">Output</label>
             <button
-              className="button copy"
+              className={`button copy ${copyiconVisible ? "" : "hidden"}`}
               onClick={() => copyText(outputValue)}
             >
               <span className={`copied-text ${isVisible ? "" : "hidden"}`}>

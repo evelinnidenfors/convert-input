@@ -91,6 +91,10 @@ button:hover {
   transition: all 0.5s;
 }
 
+button.copy.hidden {
+  display: none;
+}
+
 button.copy {
   display: flex;
   align-items: center;
@@ -98,6 +102,9 @@ button.copy {
   background: transparent;
   padding: 0;
   margin: 0;
+  position: absolute;
+  right: 0;
+  bottom: 7px;
 }
 
 button.copy img {
@@ -115,8 +122,6 @@ button.copy:hover {
 .copied-text {
   text-transform: lowercase;
   color: #a49694;
-  position: absolute;
-  right: 30px;
   animation: fadeIn ease 500ms;
   -webkit-animation: fadeIn ease 500ms;
   -moz-animation: fadeIn ease 500ms;
