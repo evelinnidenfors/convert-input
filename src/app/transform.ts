@@ -1,16 +1,21 @@
 export default function tranformation(inputText:string) {
     let inputArray = inputText.split("\n");
+    // let dictionary:Array<string> = [];
+    let dictionary: Record<string, boolean> = {};
 
-    return inputArray.map((el) => {
+    return inputArray.sort((a,b) => b < a ? 1 : -1 ).map((el) => {
         let removeComma = el.replaceAll(',', '').trim();
         let hasWhitespace = removeComma.indexOf(' ') > 0;
 
         if (hasWhitespace) {
-            return `"${removeComma}"`;
+            let containsWord = removeComma.split(" ").some((word) => dictionary[word]);
+            
+            return containsWord ? null : `"${removeComma}"`;
+        } else {
+            dictionary[removeComma] = true;
+            return removeComma;
         }
-
-        return removeComma;
-    }).join(',');
+    }).filter((word) => word != null).join(',');
 
     return inputText;
 }

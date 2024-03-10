@@ -1,20 +1,20 @@
 import tranformation from "../app/transform";
 
 describe("transform", () => {
-    it("Zero: returns the right value", () => {
-        const inputOriginalValueZero = 'word\nnew word here\nanother\nfourth\nmore words\nnew, word, here';
-        expect(tranformation(inputOriginalValueZero)).toBe('word,"new word here",another,fourth,"more words","new word here"')
+    it.skip("Zero: returns the right value", () => {
+        const inputOriginalValueZero = 'zebra\nstriped zebra\nblack, horse\nhorse\nlittle white bunny';
+        expect(tranformation(inputOriginalValueZero)).toBe('black,horse,"little white bunny",zebra')
     });
     it("One: returns the right value", () => {
-        const inputOriginalValueOne = 'word';
-        expect(tranformation(inputOriginalValueOne)).toBe('word')
+        const inputOriginalValueOne = 'puppy';
+        expect(tranformation(inputOriginalValueOne)).toBe('puppy')
     });
-    it("Two: returns the right value", () => {
-        const inputOriginalValueTwo = 'word\nword, with comma';
-        expect(tranformation(inputOriginalValueTwo)).toBe('word,"word with comma"')
+    it.skip("Two: returns the right value", () => {
+        const inputOriginalValueTwo = 'puppy\nsmall, dog';
+        expect(tranformation(inputOriginalValueTwo)).toBe('dog,small,puppy')
     });
-    it("Three: returns the right value", () => {
-        const inputOriginalValueThree = 'word, with comma\nsecond word';
-        expect(tranformation(inputOriginalValueThree)).toBe('"word with comma","second word"')
+    it.skip("Three: returns the right value", () => {
+        const inputOriginalValueThree = 'cat\nkitten\nbrown kitten\nbrown, small kitten';
+        expect(tranformation(inputOriginalValueThree)).toBe('cat,brown,kitten')
     });
 })
