@@ -1,5 +1,5 @@
 export default function tranformation(inputText:string) {
-    let inputArray = inputText.replace(",", "\n").split("\n");
+    let inputArray = inputText.replace(/,/g, "\n").replace(/\"/g, "").split("\n");
     // let dictionary:Array<string> = [];
     let dictionary: Record<string, boolean> = {};
 
