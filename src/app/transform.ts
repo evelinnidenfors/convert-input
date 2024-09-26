@@ -1,5 +1,6 @@
 export default function tranformation(inputText:string) {
-    let inputArray = inputText.replace(/,/g, "\n").replace(/\"|\“|\”/g, "").replace(/\“/g, "").split("\n");
+    // let inputArray = inputText.replace(/,/g, "\n").replace(/\"|\“|\”/g, "").split("\n");
+    let inputArray = inputText.replace(/,/g, "\n").replace(/\"|\“|\”|\~|\!|\@|\#|$|\£|\*|\(|\)|\_|\+|\=|\{|\}|\[|\]|\:|\;|\<|\>|\.|\&/g, "").replace(/  +/g, ' ').replace(/\“/g, "").split("\n");
     // let dictionary:Array<string> = [];
     let dictionary: Record<string, boolean> = {};
 
